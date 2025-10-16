@@ -6,7 +6,7 @@
 /*   By: bsemenen <bsemenen@student.42vienna.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 19:52:16 by bsemenen          #+#    #+#             */
-/*   Updated: 2025/10/16 22:15:12 by bsemenen         ###   ########.fr       */
+/*   Updated: 2025/10/16 22:48:41 by bsemenen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "printf.h"
@@ -39,17 +39,19 @@ int ft_printf(const char *format, ...)
 {
 	va_list args;
 	va_start(args, format);
+	int count;
 
+	count = 0;
 	while(*format)
 	{
 		if(*format == '%' && *format++)
 		{
-			
+			if(parse(*format, args) != 0)
+				count += parse(*format, args);
 		}	
 	
 	}
 
 
 	va_end(args);
-	printf("ksahsdhkajsdhkas %d ", b);
 }

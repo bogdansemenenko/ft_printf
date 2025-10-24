@@ -6,7 +6,7 @@
 /*   By: bsemenen <bsemenen@student.42vienna.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 19:52:16 by bsemenen          #+#    #+#             */
-/*   Updated: 2025/10/16 22:48:41 by bsemenen         ###   ########.fr       */
+/*   Updated: 2025/10/24 16:05:13 by bsemenen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "printf.h"
@@ -49,9 +49,7 @@ int ft_printf(const char *format, ...)
 			if(parse(*format, args) != 0)
 				count += parse(*format, args);
 		}	
-	
-	}
-
+	}	
 
 	va_end(args);
 }

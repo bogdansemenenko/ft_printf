@@ -9,8 +9,7 @@
 /*   Updated: 2025/10/24 18:49:18 by bsemenen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft.h"
-
+#include "printf.h"
 static int	count_digits(long n)
 {
 	int	i;
@@ -28,13 +27,11 @@ static char	*fill_str(char *str_utoa, long long_n)
 {
 	int		len_utoa;
 	int		i;
-	char	neg;
 
-	neg = '-';
 	i = 0;
 	if (!long_n)
 		return (ft_strdup("0"));
-	len_utoa = count_digits(long_n) + flag;
+	len_utoa = count_digits(long_n);
 	str_utoa[len_utoa] = '\0';
 	while (long_n > 0)
 	{
@@ -47,8 +44,6 @@ static char	*fill_str(char *str_utoa, long long_n)
 
 char	*ft_utoa(unsigned int n)
 {
-	int		flag;
-	long	long_n;
 	char	*str_utoa;
 
 	if (n == 0)
@@ -58,8 +53,8 @@ char	*ft_utoa(unsigned int n)
 			return (NULL);
 		return (str_utoa[0] = '0', str_utoa[1] = '\0', str_utoa);
 	}
-	str_utoa = (char *)malloc(sizeof(char) * (count_digits(long_n) + 1));
+	str_utoa = (char *)malloc(sizeof(char) * (count_digits(n) + 1));
 	if (!str_utoa)
 		return (NULL);
-	return (fill_str(str_utoa, long_n));
+	return (fill_str(str_utoa, n));
 }

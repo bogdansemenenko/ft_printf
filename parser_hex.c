@@ -9,5 +9,56 @@
 /*   Updated: 2025/10/24 19:24:52 by bsemenen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "printf.h"
 
-char hex_base_(va_list args, )
+int handler_x(va_list args){
+
+    char *list; 
+    char hex[17];
+    int i;
+    unsigned long long int num;
+    int len;
+
+    i = 16;
+    list = ("0123456789abcdef");
+    hex[16] = '\0';
+    num = (unsigned long long int)args;
+    len = 0;
+    if(!num)
+        return(write(2, "0", 1));
+    while(num > 0)
+    {
+        hex[i] = list[num % 16];
+        num /= 16;
+        len++;
+        i--;
+    }
+    printf("hex: %s\n", hex);
+    ft_putstr_fd(hex, 1);
+    return(len);
+}
+int handler_xx(va_list args){
+
+    char *list; 
+    char hex[17];
+    int i;
+    unsigned long long int num;
+    int len;
+
+    i = 16;
+    list = ("0123456789ABCDEF");
+    hex[16] = '\0';
+    num = (unsigned long long int)args;
+    len = 0;
+    if(!num)
+        return(write(2, "0", 1));
+    while(num > 0)
+    {
+        hex[i] = list[num % 16];
+        num /= 16;
+        len++;
+        i--;
+    }
+    ft_putstr_fd(hex, 1);
+    return(len);
+}

@@ -10,10 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdio.h>
-
+#include "printf.h"
 int main(void)
 {
 	//unsigned int n = -2;
-	printf("u in printf %u\n", );
-
+	printf("len: %d\n", ft_printf("Hello this is d: %d\n", 123));
+	printf("len: %d\n", ft_printf("this is hex: %x\n", 123));
+	return 0;
 }

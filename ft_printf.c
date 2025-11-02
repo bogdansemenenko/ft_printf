@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 #include "printf.h"
 
-static int parse(const char format, va_list args)
+static int parse(const char *format, va_list args)
 {
 	if(*format == 'c')
 		return handler_c(args);
@@ -33,8 +33,6 @@ static int parse(const char format, va_list args)
 	return 0;
 }
 
-
-
 int ft_printf(const char *format, ...)
 {
 	va_list args;
@@ -42,14 +40,21 @@ int ft_printf(const char *format, ...)
 	int count;
 
 	count = 0;
+	if(!format)
+		return(-1);
 	while(*format)
 	{
 		if(*format == '%' && *format++)
 		{
-			if(parse(*format, args) != 0)
-				count += parse(*format, args);
-		}	
+			//if(parse(format++, args) != 0)
+				count += parse(format++, args);
+		}
+		else
+		{
+		ft_putchar_fd(*format++, 1);
+		count++;
+		}
 	}	
-
+	return (count);
 	va_end(args);
 }

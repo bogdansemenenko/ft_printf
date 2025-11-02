@@ -1,8 +1,16 @@
 NAME = libftprintf.a
 
 SRC = ft_printf.c \
+      ft_utoa.c \
+	  parser_hex.c \
+	  parser.c \
+	
 
 SRC_LIBFT = libft/ft_strlen.c \
+			libft/ft_putstr_fd.c \
+			libft/ft_strdup.c \
+			libft/ft_itoa.c \
+			libft/ft_putchar_fd.c \
 			
 OBJ = $(SRC:.c=.o)
 

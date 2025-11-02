@@ -39,7 +39,9 @@ int handler_s(va_list args)
 int handler_p(va_list args)
 {
 	void *p;
-	
+	int count;
+
+	count = 0;
 	p = (void *) va_arg(args, void *);
 	if(!p)
 	{
@@ -47,8 +49,11 @@ int handler_p(va_list args)
 		return (5);
 	}
 
-	//hexadecimal
-	//hexadecimal_l();
+	ft_putstr_fd("0x", 1);
+	count += 2;
+	count += handler_x(args);
+
+	return (count);
 }
 
 int handler_d(va_list args)
@@ -57,26 +62,27 @@ int handler_d(va_list args)
 	char *str;
 	int str_len;
 
-	d = (char *) va_arg(args, int);
-	str = ft_itoa(s);
+	d = (int) va_arg(args, int);
+	str = ft_itoa(d);
 	if(!str)
 		return (0);
+	ft_putstr_fd(str, 1);
 	str_len = ft_strlen(str);
 	free(str);
 	return (str_len);
 }
 
-int hander_u(va_list args)
+int handler_u(va_list args)
 {
 	unsigned int u;
 	char *str;
 	int str_len;
 
-	u = (char *) va_arg(args, unsigned int);
+	u = (unsigned int) va_arg(args, unsigned int);
 	str = ft_utoa(u);
 	if(!str)
 		return (0);
-
+	ft_putstr_fd(str, 1);
 	str_len = ft_strlen(str);
 	free(str);
 	return (str_len);

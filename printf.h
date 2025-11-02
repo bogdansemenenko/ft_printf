@@ -17,8 +17,18 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <stdlib.h>
+#include "libft/libft.h"
 
+//static int parse(const char *format, va_list args);
+int ft_printf(const char *format, ...);
 
-
+int	handler_c(va_list args);
+int handler_s(va_list args);
+int handler_p(va_list args);
+int handler_d(va_list args);
+int handler_u(va_list args);
+int handler_x(va_list args);
+int handler_xx(va_list args);
+char	*ft_utoa(unsigned int n);
 
 #endif
